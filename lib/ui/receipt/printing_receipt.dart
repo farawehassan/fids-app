@@ -204,12 +204,12 @@ class _PrintingReceiptState extends State<PrintingReceipt> {
                                 Navigator.of(context).pop(); // To close the dialog
                                 _showReceipt().then((ticketValue){
                                   printerManager.printTicket(ticketValue).then((result) {
-                                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(result.msg)));
+                                    Constants.showMessage(result.msg);
                                     if(result.msg == "Success"){
                                       _saveProduct("Transfer");
                                     }
                                   }).catchError((error){
-                                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error.toString())));
+                                    Constants.showMessage(error.toString());
                                   });
                                 });
                               },
@@ -221,12 +221,12 @@ class _PrintingReceiptState extends State<PrintingReceipt> {
                                 Navigator.of(context).pop(); // To close the dialog
                                 _showReceipt().then((ticketValue){
                                   printerManager.printTicket(ticketValue).then((result) {
-                                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(result.msg)));
+                                    Constants.showMessage(result.msg);
                                     if(result.msg == "Success"){
                                       _saveProduct("Cash");
                                     }
                                   }).catchError((error){
-                                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error.toString())));
+                                    Constants.showMessage(error.toString());
                                   });
                                 });
                               },

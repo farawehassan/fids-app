@@ -170,8 +170,8 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
   /// Function to display a snackbar with the value [value]
   void _showInSnackBar(String value) {
     FocusScope.of(context).requestFocus(FocusNode());
-    ScaffoldMessenger.of(context).removeCurrentSnackBar();
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    _scaffoldKey.currentState?.removeCurrentSnackBar();
+    _scaffoldKey.currentState.showSnackBar(SnackBar(
       content: Text(
         value,
         textAlign: TextAlign.center,
